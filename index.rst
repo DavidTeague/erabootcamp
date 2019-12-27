@@ -37,6 +37,15 @@
 
 .. toctree::
   :maxdepth: 2
+  :caption: Era Oracle Labs
+  :name: _era_oracle_labs
+  :hidden:
+
+  era_register_oracle_dbs/era_register_oracle_dbs
+  era_patch_orcale_dbs/era_patch_oracle_dbs
+
+.. toctree::
+  :maxdepth: 2
   :caption: Era Rest APIs
   :name: _era_rest_apis
   :hidden:
@@ -99,6 +108,8 @@ Agenda
     - Era: Create MSSQL Server
     - Era: Register MSSQL Databases
     - Era: Clone MSSQL DB
+    - Era: Register Oracle Databases
+    - Era: Patch Oracle Databases
     - Era: REST API Explorer
 
 - Optional Labs
