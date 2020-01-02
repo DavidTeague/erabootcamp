@@ -34,6 +34,7 @@
   era_create_mssql_server/era_create_mssql_server
   era_register_mssql_dbs/era_register_mssql_dbs
   era_clone_mssqldb/era_clone_mssqldb
+ß
 
 .. toctree::
   :maxdepth: 2
@@ -42,7 +43,7 @@
   :hidden:
 
   era_register_oracle_dbs/era_register_oracle_dbs
-  era_patch_orcale_dbs/era_patch_oracle_dbs
+  era_patch_oracle_dbs/era_patch_oracle_dbs
 
 .. toctree::
   :maxdepth: 2
