@@ -11,7 +11,7 @@ Overview
 
   Estimated time to complete: **30 MINUTES**
 
-In this lab we will import existing MSSQL Databases into Era for management.
+In this lab we will import existing Oracle Databases into Era for management.
 
 Register Oracle Databases with Era
 +++++++++++++++++++++++++++++++++++++
@@ -91,7 +91,7 @@ Once the **WideWorldImportersDW** database has been registered with Era, the Tim
 #. On the **Database Server** screen, input the following and click **Next**:
 
    -  **Database is on a Server that is:** - Registered
-   -  **Registered Database Servers** - *Initials*-MSSQL-PROD
+   -  **Registered Database Servers** - *Initials*-Oracle-PROD
 
    .. figure:: images/registerdb_04.png
 

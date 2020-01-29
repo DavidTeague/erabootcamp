@@ -41,7 +41,7 @@
   :caption: Era Oracle Labs
   :name: _era_oracle_labs
   :hidden:
-
+  era_create_oracle_server/era_create_oracle_server
   era_register_oracle_dbs/era_register_oracle_dbs
   era_patch_oracle_dbs/era_patch_oracle_dbs
 
