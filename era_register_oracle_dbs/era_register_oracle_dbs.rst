@@ -1,4 +1,4 @@
-.. _era_register_oralce_dbs:
+.. _era_register_oracle_dbs:
 
 ------------------------------
 Era: Register Oracle Databases

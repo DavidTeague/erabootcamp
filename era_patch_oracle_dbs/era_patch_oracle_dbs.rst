@@ -1,4 +1,4 @@
-.. _era_patch_oralce_dbs:
+.. _era_patch_oracce_dbs:
 
 ------------------------------
 Era: Register Oracle Databases
