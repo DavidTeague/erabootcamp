@@ -17,7 +17,7 @@ This lab will deploy and configure a Oracle Server to be managed by Era.
 Create The Database Storage Container
 +++++++++++++++++++++++++++++++++++++
 
-Before creating a VM, a container will need to be created that will host the SQL Server disks. Inline compression should be enabled on this container. Both deduplication and erasure coding should be disabled on this container.
+Before creating a VM, a container will need to be created that will host the Oracle Server disks. Inline compression should be enabled on this container. Both deduplication and erasure coding should be disabled on this container.
 
 .. note::
 

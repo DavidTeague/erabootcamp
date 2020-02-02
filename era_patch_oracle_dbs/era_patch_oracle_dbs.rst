@@ -1,7 +1,7 @@
 .. _era_patch_oralce_dbs:
 
 ------------------------------
-Era: Register Oracle Databases
+Era: Patch Oracle Databases
 ------------------------------
 
 Overview
@@ -11,103 +11,108 @@ Overview
 
   Estimated time to complete: **30 MINUTES**
 
-In this lab we will import existing Oracle Databases into Era for management.
+In this lab we will create a software profile for the oracle database clone the database and patch. Then create a new software pofile and with the clone and patch the source.
 
-Register Oracle Databases with Era
-+++++++++++++++++++++++++++++++++++++
-
-Before Era can be used with existing databases, they must be registered in Era.
-
-Register The WideWorldImporters Database
-........................................
-
-Once the **WideWorldImporters** database has been registered with Era, the Time Machine for the database will start creating snapshots and collecting transaction log backups.
-
-#. Open \https://*ERA-VM-IP:8443*/ in a new browser tab.
-
-#. Select the **Era > Getting Started** drop down menu and click **Databases**.
-
-#. Select **Sources** in the **Databases** pane on the left-hand side of the screen.
-
-#. Click **+ Register**.
-
-#. In the **Register a Source Database** Dialoge box, select **Oracle**, and click **Next**.
-
-#. On the **Database Server** screen, input the following and click **Next**:
-
-   -  **Database is on a Server that is:** - Not Registered
-   -  **IP Address or Name of VM** - Database IP
-   -  **Era Drive user** - nutanix
-   -  **Oracle Databse home** - /u01/app/oracle/product/12.1/dbhome_1/
-   -  **Password** - nutanix/4u
+Create software Profile of Oracle Databases with Era
 
 
-   .. figure:: images/registerdb_01.png
 
-#. On the **Database** screen, input the following and click **Next**:
+Before Era can be used patch we need a base software profile
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-   -  **Database Name in Era** - WideWorldImporters
-   -  **Description** - (Optional) Description
-   -  **SID** -  WideWorldImporters
+Create Software Profile for Oracle database
++++++++++++++++++++++++++++++++++++++++++++
 
-   .. figure:: images/registerdb_02.png
+Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine for the database will start creating snapshots and collecting transaction log backups.
 
-#. On the **Time Machine** screen, input the following and click **Register**:
+#. Open https://*ERA-VM-IP:8443*/ in a new browser tab.
 
-   -  **Name** - WideWorldImporters_TM
-   -  **Description** - (Optional) Description
-   -  **SLA** - GOLD
-   -  **Schedule** - Take Defaults
+#. Select the **Era > Getting Started** drop down menu and click **Profiles**.
 
-   .. figure:: images/registerdb_03.png
+#. Select **Software** in the **Profiles** pane on the left-hand side of the screen.
 
-#. Monitor the registration operation by clicking **WideWorldImporters**.
+#. Click **+ Create**.
+
+#. In the **Create Software Profile** Dialog box, select **Oracle**, and click **Next**.
+
+#. On the **Create Software Profile** screen, select **xyz-Oracle-Prod**  input the following and click **create**:
+    -  **Name** - xyz_ORCL19C_base
+    -  **Description** - (Optional) Description
+
+   .. figure:: images/patchdb_01.png
+
+#. Click xyz_ORCL19C to check the progress
+
+# One Software Profile is Created #. Select the **Era > Operations** drop down menu and click **Profiles**.
+
+#. Choose on **xyz_ORCL19C_base** and click **View Versions**
+
+#. Chose Update
+
+#. On the Update Software profile Version choose **Published** and click **Next**;
+
+   .. figure:: images/patchdb_04.png
+#. Fill out any notes you would like and click **next**
+
+#. Click **Update** on next screen
+
+
+Clone server for patching
++++++++++++++++++++++++++++++++++++++++++++
+
+#. Select the **Era > Time Machines ** drop down menu select xyz_OrCL91c_TM click **Actions, Clone Databse **;
+
+#. On the **Clone Database** screen Take Defaults and click **Next**;
+   .. figure:: images/patchdb_02.png
+
+#. On the second **Clone Database** screen, input the following and click **Next**:
+
+   -  **Name** - Take Default
+   -  **Compute Profile** - Small
+   -  **Network Profile** - Prod - Oracle
+   -  **Provide SSH Public Key Through** - Chose File and Use Provided SSH Key
+   -  **Database Server Time Zone** - Choose Local Time Zone
+
+   .. figure::  images/patchdb_03.png
+
+#. On the third **Clone Database** screen, input the following and click **Clone**:
+
+   -  **Name** - Take Default
+   -  **Description ** - (Optional) Description
+   -  **SYS and SYSTEM Password** - nutanix/4u
+   -  **Database Parameter Profile** - Small Oracle
+
+   .. figure::  images/patchdb_03.png
+
+#. Monitor the registration operation by clicking **ORCL19C_2020_(current date)**.
 
    .. note::
 
      Wait for the operation to successfully complete before attempting to register another SQL Server database.
 
-Register The WideWorldImportersDW Database
-..........................................
+Patch Server VIA SSH
+....................
+Apply any Oracle and OS patches via the cli
 
-The process to register the second database is slightly different since the database server has already been registered.
+Update Software Profile
+....................
 
-   .. note::
+Update the software profile of the patched server to use for patching existing server
 
-     This same process can be used to register additional databases on the same instance of SQL Server.
+Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine for the database will start creating snapshots and collecting transaction log backups.
 
-Once the **WideWorldImportersDW** database has been registered with Era, the Time Machine for the database will start creating snapshots and collecting transaction log backups.
+#. Select the **Era > Getting Started** drop down menu and click **Profiles**.
 
-#. Open \https://*ERA-VM-IP:8443*/ in a new browser tab.
+#. Select **Software** in the **Profiles** pane on the left-hand side of the screen.
 
-#. Select the **Era > Getting Started** drop down menu and click **Databases**.
+#. Chose **xyz_ORCL19c_base** and click **View Versions**
 
-#. Select **Sources** in the **Databases** pane on the left-hand side of the screen.
+#. Chose **xyz_ORCL19c_base(1.0)** and click **+ Create**
 
-#. Click **+ Register**.
+#. On the **Crate Software Profile** chose the server you cloned input the following and click **create**:
+    -  **Name** - xyz_ORCL19C_patched
+    -  **Description** - (Optional) Description
 
-#. In the **Register a Source Database** Dialoge box, select **Microsoft SQL Server**, and click **Next**.
+   .. figure:: images/patchdb_01.png
 
-#. On the **Database Server** screen, input the following and click **Next**:
-
-   -  **Database is on a Server that is:** - Registered
-   -  **Registered Database Servers** - *Initials*-Oracle-PROD
-
-   .. figure:: images/registerdb_04.png
-
-#. On the **Database** screen, input the following and click **Next**:
-
-   -  **Database Name on VM** - WideWorldImportersDW
-   -  **Database Name in Era** - WideWorldImportersDW
-   -  **Description** - (Optional) Description
-
-#. On the **Time Machine** screen, input the following and click **Register**:
-
-   -  **Recovery Model** - Full/Bulk-logged
-   -  **Manage Log Backups with** - Era
-   -  **Name** - WideWorldImportersDW_TM
-   -  **Description** - (Optional) Description
-   -  **SLA** - GOLD
-   -  **Schedule** - Take Defaults
-
-#. Monitor the registration operation by clicking **WideWorldImportersDW**.
+#. Click xyz_ORCL19C to check the progress
