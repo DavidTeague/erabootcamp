@@ -121,5 +121,3 @@ Now we will use Prism Central to deploy the Oracle Server VM.
 #. Click **Save** to create the VM.
 
 #. Select your Oracle Server VM and click **Power On**.
-
-.. note::

@@ -2,8 +2,8 @@
 
 .. toctree::
   :maxdepth: 2
-  :caption: Era Tech Summit 2019 Lab
-  :name: _era_tech_summit_2019_lab
+  :caption: Era Tech Summit 2020 Lab
+  :name: _era_tech_summit_2020_lab
   :hidden:
 
   era/era
@@ -34,13 +34,13 @@
   era_create_mssql_server/era_create_mssql_server
   era_register_mssql_dbs/era_register_mssql_dbs
   era_clone_mssqldb/era_clone_mssqldb
-ß
 
 .. toctree::
   :maxdepth: 2
   :caption: Era Oracle Labs
   :name: _era_oracle_labs
   :hidden:
+
   era_create_oracle_server/era_create_oracle_server
   era_register_oracle_dbs/era_register_oracle_dbs
   era_patch_oracle_dbs/era_patch_oracle_dbs
