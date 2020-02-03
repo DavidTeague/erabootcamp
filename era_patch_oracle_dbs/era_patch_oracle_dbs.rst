@@ -36,7 +36,7 @@ Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine
 #. In the **Create Software Profile** Dialog box, select **Oracle**, and click **Next**.
 
 #. On the **Create Software Profile** screen, select **xyz-Oracle-Prod**  input the following and click **create**:
-    -  **Name** - xyz_ORCL19C_base
+    -  **Name** - xyz_ORCL19C
     -  **Description** - (Optional) Description
 
    .. figure:: images/patchdb_01.png
@@ -94,12 +94,12 @@ Patch Server VIA SSH
 ....................
 Apply any Oracle and OS patches via the cli
 
+need this instructions
+
 Update Software Profile
-....................
+.......................
 
 Update the software profile of the patched server to use for patching existing server
-
-Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine for the database will start creating snapshots and collecting transaction log backups.
 
 #. Select the **Era > Getting Started** drop down menu and click **Profiles**.
 
@@ -113,6 +113,23 @@ Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine
     -  **Name** - xyz_ORCL19C_patched
     -  **Description** - (Optional) Description
 
-   .. figure:: images/patchdb_01.png
+   .. figure:: images/patchdb_05.png
 
 #. Click xyz_ORCL19C to check the progress
+
+Patch Prod Sever
+................
+
+First we must update the orginal software profile with the unpatch Prod Server
+
+#. Select the **Era > Getting Started** drop down menu and click **Profiles**.
+
+#. Select **Software** in the **Profiles** pane on the left-hand side of the screen.
+
+#. Chose  **xyz_ORCL19-Prod** and click **View Versions**
+
+#. Chose **xyz_Oracle** and click **+ Create**
+
+#. On the **Crate Software Profile** chose the server you cloned input the following and click **create**:
+    -  **Name** - xyz_ORCL19C_base
+    -  **Description** - (Optional) Description
