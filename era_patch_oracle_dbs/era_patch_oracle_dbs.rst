@@ -15,61 +15,19 @@ In this lab we will create a software profile for the oracle database clone the 
 
 Create software Profile of Oracle Databases with Era
 
-
-
-Before Era can be used patch we need a base software profile
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Create Software Profile for Oracle database
-+++++++++++++++++++++++++++++++++++++++++++
-
-Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine for the database will start creating snapshots and collecting transaction log backups.
-
-#. Open https://*ERA-VM-IP:8443*/ in a new browser tab.
-
-#. Select the **Era > Getting Started** drop down menu and click **Profiles**.
-
-#. Select **Software** in the **Profiles** pane on the left-hand side of the screen.
-
-#. Click **+ Create**.
-
-#. In the **Create Software Profile** Dialog box, select **Oracle** and **Single Instance** then click **Next**.
-
-#. On the **Create Software Profile** screen, select **xyz-Oracle-Prod**  input the following and click **create**:
-    -  **Name** - xyz_oracle_base
-    -  **Description** - (Optional) Description
-
-   .. figure:: images/patchdb_01.png
-
-#. Click xyz_oracle_base to check the progress
-
-# One Software Profile is Created #. Select the **Era > Operations** drop down menu and click **Profiles**.
-
-#. Choose on **xyz_ORCL19C_base** and click **View Versions**
-
-#. Chose Update
-
-#. On the Update Software profile Version choose **Published** and click **Next**;
-
-   .. figure:: images/patchdb_04.png
-#. Fill out any notes you would like and click **next**
-
-#. Click **Update** on next screen
-
-
 Clone server for patching
 +++++++++++++++++++++++++++++++++++++++++++
 
-#. Select the **Era > Time Machines ** drop down menu select xyz_OrCL91c_TM click **Actions, Clone Databse **;
+#. Select the **Era > Time Machines ** drop down menu select xyz_OrCL91c_TM click **Actions, Clone Database **;
 
 #. On the **Clone Database** screen Take Defaults and click **Next**;
    .. figure:: images/patchdb_02.png
 
 #. On the second **Clone Database** screen, input the following and click **Next**:
 
-   -  **Name** - Take Default
-   -  **Compute Profile** - Small
-   -  **Network Profile** - Prod - Oracle
+   -  **Name** - initials_oracle_patch
+   -  **Compute Profile** - CUSTOM_EXTRA_SMALL
+   -  **Network Profile** - Orcle_Prod
    -  **Provide SSH Public Key Through** - Chose File and Use Provided SSH Key
    -  **Database Server Time Zone** - Choose Local Time Zone
 
@@ -77,24 +35,43 @@ Clone server for patching
 
 #. On the third **Clone Database** screen, input the following and click **Clone**:
 
-   -  **Name** - Take Default
+   -  **Name** - initials_oracle_patch
+   -  **SID** - initialspat
    -  **Description ** - (Optional) Description
    -  **SYS and SYSTEM Password** - nutanix/4u
-   -  **Database Parameter Profile** - Small Oracle
+   -  **Database Parameter Profile** - Oracle_Extra_Small
 
-   .. figure::  images/patchdb_03.png
+   .. figure::  images/patchdb_04.png
 
 #. Monitor the registration operation by clicking **ORCL19C_2020_(current date)**.
 
    .. note::
 
-     Wait for the operation to successfully complete before attempting to register another SQL Server database.
+     This will take about 15 mins.
 
-Patch Server VIA SSH
+Patch Cloned Server VIA SSH
 ....................
-Apply any Oracle and OS patches via the cli
+Apply any Oracle Patches to Clone Server
 
-need this instructions
+#. Select the **Era > Database Servers ** and click Cloned DB Servers
+
+#. Click on **initials_oracle_patch**
+
+#. Click **See Description** under Connect via SSH
+
+   .. figure:: images/patchdb_06.png
+
+#. Use the ip address listed to connect to vm from your tools vm with putty
+    - **username** - oracle
+    - **password** - Nutanix/4u
+
+#. Once logged into the vm type bash
+
+#. run the command below
+   - sudo /root/Downloads/applypsu.sh
+   - press enter to start patch
+   - You can ignore any errors about directories not existing.
+# type exit three times to exit
 
 Update Software Profile
 .......................
@@ -105,31 +82,44 @@ Update the software profile of the patched server to use for patching existing s
 
 #. Select **Software** in the **Profiles** pane on the left-hand side of the screen.
 
-#. Chose **xyz_ORCL19c_base** and click **View Versions**
+#. Chose **initials_oracle_base** and click **View Versions**
 
-#. Chose **xyz_ORCL19c_base(1.0)** and click **+ Create**
+#. Chose **initials_oracle_base(1.0)** and click **+ Create**
 
 #. On the **Crate Software Profile** chose the server you cloned input the following and click **create**:
-    -  **Name** - xyz_ORCL19C_patched
+    -  **Name** - initials_oracle_patched
     -  **Description** - (Optional) Description
 
    .. figure:: images/patchdb_05.png
 
-#. Click xyz_ORCL19C to check the progress
+#. Select initials_oracle_patched to check the progress
+
+#. Once creation of profile is complete, go back to **Software Profiles**
+
+#. Chose **initials_oracle_base** and click **View Versions**
+
+#. Chose **initials_oracle_patched** and click **Update**
+
+# Select **Published** and click **Next** three times.
+   .. figure:: images/patchdb_07.png
+#
 
 Patch Prod Sever
 ................
 
-First we must update the orginal software profile with the unpatch Prod Server
+Now that we have a published patched software profile we can patch your original "Prod" Servers
 
-#. Select the **Era > Getting Started** drop down menu and click **Profiles**.
+# Select the **Era >* drop down menu and click **Database Servers**.
 
-#. Select **Software** in the **Profiles** pane on the left-hand side of the screen.
+# Under Oracle Click on **Source DB Servers**
 
-#. Chose  **xyz_ORCL19-Prod** and click **View Versions**
+# Select on  **initials_oracle_prod**
 
-#. Chose **xyz_Oracle** and click **+ Create**
+# Scroll Down to Profiles, you should see update available
+  .. figure:: images/patchdb_08.png
 
-#. On the **Crate Software Profile** chose the server you cloned input the following and click **create**:
-    -  **Name** - xyz_ORCL19C_base
-    -  **Description** - (Optional) Description
+# Select **Update**
+
+# On Patch 1 Database(s) on server Screen make sure Now is selected and click patch Database
+  .. figure:: images/patchdb_09.png
+# Click on operations to see patch progress
