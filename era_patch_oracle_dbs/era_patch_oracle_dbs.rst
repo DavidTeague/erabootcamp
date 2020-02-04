@@ -100,26 +100,29 @@ Update the software profile of the patched server to use for patching existing s
 
 #. Chose **initials_oracle_patched** and click **Update**
 
-# Select **Published** and click **Next** three times.
+#. Select **Published** and click **Next** three times.
    .. figure:: images/patchdb_07.png
-#
+
 
 Patch Prod Sever
 ................
 
 Now that we have a published patched software profile we can patch your original "Prod" Servers
 
-# Select the **Era >* drop down menu and click **Database Servers**.
+#. Select the **Era >* drop down menu and click **Database Servers**.
 
-# Under Oracle Click on **Source DB Servers**
+#. Under Oracle Click on **Source DB Servers**
 
-# Select on  **initials_oracle_prod**
+#. Select on  **initials_oracle_prod**
 
-# Scroll Down to Profiles, you should see update available
-  .. figure:: images/patchdb_08.png
+#. Scroll Down to Profiles, you should see update available
 
-# Select **Update**
+.. figure:: images/patchdb_08.png
 
-# On Patch 1 Database(s) on server Screen make sure Now is selected and click patch Database
-  .. figure:: images/patchdb_09.png
-# Click on operations to see patch progress
+#. Select **Update**
+
+#. On Patch 1 Database(s) on server Screen make sure Now is selected and click patch Database
+
+.. figure:: images/patchdb_09.png
+
+#. Click on operations to see patch progress
