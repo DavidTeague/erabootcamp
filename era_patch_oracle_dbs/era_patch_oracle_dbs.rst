@@ -33,15 +33,15 @@ Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine
 
 #. Click **+ Create**.
 
-#. In the **Create Software Profile** Dialog box, select **Oracle**, and click **Next**.
+#. In the **Create Software Profile** Dialog box, select **Oracle** and **Single Instance** then click **Next**.
 
 #. On the **Create Software Profile** screen, select **xyz-Oracle-Prod**  input the following and click **create**:
-    -  **Name** - xyz_ORCL19C
+    -  **Name** - xyz_oracle_base
     -  **Description** - (Optional) Description
 
    .. figure:: images/patchdb_01.png
 
-#. Click xyz_ORCL19C to check the progress
+#. Click xyz_oracle_base to check the progress
 
 # One Software Profile is Created #. Select the **Era > Operations** drop down menu and click **Profiles**.
 

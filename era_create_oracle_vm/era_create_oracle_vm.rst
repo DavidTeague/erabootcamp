@@ -1,7 +1,7 @@
-.. _era_create_oracle_server:
+.. _era_create_oracle_vm:
 
 --------------------------
-Era: Create Oracle Server
+Era: Create Oracle VM
 --------------------------
 
 Overview
@@ -50,7 +50,7 @@ Now we will use Prism Central to deploy the Oracle Server VM.
 
 #. Fill out the following fields:
 
-   - **Name** - *Initials*-Oracle-PROD
+   - **Name** - *Initials*-Oracle-Base
    - **Description** - (Optional) Description for your VM.
    - **vCPU(s)** - 2
    - **Number of Cores per vCPU** - 1
