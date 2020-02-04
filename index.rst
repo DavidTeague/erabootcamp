@@ -42,8 +42,8 @@
   :hidden:
 
   era_create_oracle_vm/era_create_oracle_vm
+  era_create_oracle_server/era_create_oracle_server
   era_register_oracle_server/era_register_oracle_server
-  era_clone_oracle_dbs/era_clone_oracle_server
   era_patch_oracle_dbs/era_patch_oracle_dbs
 
 .. toctree::
