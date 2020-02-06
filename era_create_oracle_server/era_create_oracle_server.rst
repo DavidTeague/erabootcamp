@@ -11,13 +11,12 @@ Overview
 
 .. note::
 
-  Estimated time to complete: **30 MINUTES**
+  Estimated time to complete: **45 MINUTES**
 
-In this lab we will import existing Oracle Server into Era as a base for deployments
+In this lab we will create an Oracle Server in Era and create a software profile
 
 Create Oracle Server with Era
 +++++++++++++++++++++++++++++++
-
 
 Create a server in ERA as "Production" server
 
@@ -35,7 +34,7 @@ Create a server in ERA as "Production" server
 
    -  **Database Server Name** - initials_oracle_prod
    -  **Description** - (Optional) Description
-   -  **Software Profile** - xyz_oracle_Base
+   -  **Software Profile** - initials_oracle_base
    -  **Compute Profile** - CUSTOME_EXTRA_SMALL
    -  **Network Profile** - Orcle_Prod
    -  **SSH Public Key for Node Access** - use provided ssh public key
@@ -49,7 +48,7 @@ Create a server in ERA as "Production" server
    -  **Era Drive user** - oracle
    -  **SYS and SYSTEM Password** - nutanix/4u
    -  **Database Parameter Profile** - Oracle_Extra_Small
-   -  **Password** - Nutanix/4u
+
 
 
    .. figure:: images/create_02.png
@@ -63,10 +62,9 @@ Create a server in ERA as "Production" server
 
 #. Monitor the registration operation by clicking **initials_oracle_prod**.
 
-   .. note::
-
+.. note::
    Wait for the provision  operation to successfully complete before moving on
-   This will take 20+ mins.
+   This will take 30+ mins.
 
 Create Software Profile
 +++++++++++++++++++++++
@@ -84,8 +82,13 @@ Once the **xyz_ORCL19C** database has been registered with Era, the Time Machine
 
 #. In the **Create Software Profile** Dialog box, select **Oracle** and **Single Instance** then click **Next**.
 
-#. On the **Create Software Profile** screen, select **xyz-Oracle-Prod**  input the following and click **create**:
-    -  **Name** - xyz_oracle_base
+#. On the **Create Software Profile** screen, select **xyz-Oracle-prod**  input the following and click **create**:
+    -  **Name** - initials_oracle_prod
     -  **Description** - (Optional) Description
 
-   .. figure:: images/register_02.png
+   .. figure:: images/create_04.png
+
+#.  Monitor the creation operation by clicking **initials_oracle_prod**.
+
+.. note::
+   Once Software Profile completion is complete move on.

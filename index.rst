@@ -42,8 +42,8 @@
   :hidden:
 
   era_create_oracle_vm/era_create_oracle_vm
-  era_create_oracle_server/era_create_oracle_server
   era_register_oracle_server/era_register_oracle_server
+  era_create_oracle_server/era_create_oracle_server
   era_patch_oracle_dbs/era_patch_oracle_dbs
 
 .. toctree::
@@ -110,7 +110,9 @@ Agenda
     - Era: Create MSSQL Server
     - Era: Register MSSQL Databases
     - Era: Clone MSSQL DB
-    - Era: Register Oracle Databases
+    - Era: Create Oracle VM
+    - Era: Register Oracle Server
+    - Era: Create Oracle Server
     - Era: Patch Oracle Databases
     - Era: REST API Explorer
 

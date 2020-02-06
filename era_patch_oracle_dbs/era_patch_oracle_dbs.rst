@@ -19,9 +19,10 @@ Create software Profile of Oracle Databases with Era
 Clone server for patching
 +++++++++++++++++++++++++++++++++++++++++++
 
-#. Select the **Era > Time Machines ** drop down menu select xyz_OrCL91c_TM click **Actions, Clone Database **;
+#. Select the **Era > Time Machines** drop down menu select initials_oracle_prod_TM click **Actions, Clone Database**;
 
 #. On the **Clone Database** screen Take Defaults and click **Next**;
+
    .. figure:: images/patchdb_02.png
 
 #. On the second **Clone Database** screen, input the following and click **Next**:
@@ -44,17 +45,17 @@ Clone server for patching
 
    .. figure::  images/patchdb_04.png
 
-#. Monitor the registration operation by clicking **ORCL19C_2020_(current date)**.
+#. Monitor the registration operation by clicking **initials_oracle_patch**.
 
    .. note::
 
      This will take about 15 mins.
 
 Patch Cloned Server VIA SSH
-....................
+...........................
 Apply any Oracle Patches to Clone Server
 
-#. Select the **Era > Database Servers ** and click Cloned DB Servers
+#. Select the **Era > Databases** and click **Cloned DB Servers** Under Oracle
 
 #. Click on **initials_oracle_patch**
 
@@ -66,13 +67,13 @@ Apply any Oracle Patches to Clone Server
     - **username** - oracle
     - **password** - Nutanix/4u
 
-#. Once logged into the vm type bash
+#. Once logged into the vm type **bash** and press enter
 
 #. run the command below
    - sudo /root/Downloads/applypsu.sh
    - press enter to start patch
    - You can ignore any errors about directories not existing.
-# type exit three times to exit
+# type **exit** three times to exit
 
 Update Software Profile
 .......................
@@ -91,18 +92,19 @@ Update the software profile of the patched server to use for patching existing s
     -  **Name** - initials_oracle_patched
     -  **Description** - (Optional) Description
 
-   .. figure:: images/patchdb_05.png
+.. figure:: images/patchdb_05.png
 
 #. Select initials_oracle_patched to check the progress
 
 #. Once creation of profile is complete, go back to **Software Profiles**
 
-#. Chose **initials_oracle_base** and click **View Versions**
+#. Chose **initials_oracle_prod** and click **View Versions**
 
 #. Chose **initials_oracle_patched** and click **Update**
 
-#. Select **Published** and click **Next** three times.
-   .. figure:: images/patchdb_07.png
+#. Select **Published** and click **Next** until you can click **Update**
+
+.. figure:: images/patchdb_07.png
 
 
 Patch Prod Sever
@@ -110,7 +112,7 @@ Patch Prod Sever
 
 Now that we have a published patched software profile we can patch your original "Prod" Servers
 
-#. Select the **Era >* drop down menu and click **Database Servers**.
+#. Select the **Era >** drop down menu and click **Database Servers**.
 
 #. Under Oracle Click on **Source DB Servers**
 
