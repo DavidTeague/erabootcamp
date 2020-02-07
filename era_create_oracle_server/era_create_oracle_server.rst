@@ -30,13 +30,15 @@ Create a server in ERA as "Production" server
 
 #. In the First **Provision a Database** Dialog box, select **Oracle**, and click **Next**.
 
-#. On the Second **Provision a Databaser** screen, input the following and click **Next**:
+#. On the Second **Provision a Database** screen, input the following and click **Next**:
 
+   -  **Database Server** - Create New Server
    -  **Database Server Name** - initials_oracle_prod
    -  **Description** - (Optional) Description
    -  **Software Profile** - initials_oracle_base
    -  **Compute Profile** - CUSTOME_EXTRA_SMALL
    -  **Network Profile** - Orcle_Prod
+   -  **Enable High Availability** - Check Box and use **oracle** as password
    -  **SSH Public Key for Node Access** - use provided ssh public key
 
      .. figure:: images/create_01.png
